@@ -7,7 +7,7 @@
           <li>
             <% if(theme.thumbnail == true) { %>
             <div class="item-thumbnail">
-              <%- partial('../_partial/post/thumbnail.ejs', {post: post}) %>
+              <%- partial('_partial/post/thumbnail', {post: post}) %>
             </div>
             <% } %>
             <div class="item-inner">
