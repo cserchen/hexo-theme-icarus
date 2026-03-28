@@ -6,7 +6,7 @@
 logo: css/images/logo.png   # Path to logo image; leave blank to hide
 
 menu:
-  Home: .
+  Home: /
   Archives: archives
   Categories: categories    # Requires a categories page in source/
   Tags: tags                # Requires a tags page in source/
