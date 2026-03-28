@@ -1,11 +1,12 @@
 module.exports = function(grunt){
   grunt.initConfig({
+    // Clone Font Awesome and Fancybox from GitHub into a temporary directory
     gitclone: {
       fontawesome: {
         options: {
           repository: 'https://github.com/FortAwesome/Font-Awesome.git',
           directory: 'tmp/fontawesome'
-        },
+        }
       },
       fancybox: {
         options: {
@@ -14,12 +15,21 @@ module.exports = function(grunt){
         }
       }
     },
+
+    // Copy the relevant assets into the theme's source directory
     copy: {
-      fontawesome: {
+      // Copy both the CSS and font files so Font Awesome works out of the box
+      fontawesome_css: {
+        expand: true,
+        cwd: 'tmp/fontawesome/css/',
+        src: ['font-awesome.min.css'],
+        dest: 'source/font-awesome/css/'
+      },
+      fontawesome_fonts: {
         expand: true,
         cwd: 'tmp/fontawesome/fonts/',
         src: ['**'],
-        dest: 'source/css/fonts/'
+        dest: 'source/font-awesome/fonts/'
       },
       fancybox: {
         expand: true,
@@ -28,9 +38,11 @@ module.exports = function(grunt){
         dest: 'source/fancybox/'
       }
     },
+
+    // Remove temporary clones and built assets
     _clean: {
       tmp: ['tmp'],
-      fontawesome: ['source/css/fonts'],
+      fontawesome: ['source/font-awesome'],
       fancybox: ['source/fancybox']
     }
   });
@@ -39,8 +51,8 @@ module.exports = function(grunt){
 
   grunt.renameTask('clean', '_clean');
 
-  grunt.registerTask('fontawesome', ['gitclone:fontawesome', 'copy:fontawesome', '_clean:tmp']);
-  grunt.registerTask('fancybox', ['gitclone:fancybox', 'copy:fancybox', '_clean:tmp']);
-  grunt.registerTask('default', ['gitclone', 'copy', '_clean:tmp']);
-  grunt.registerTask('clean', ['_clean']);
+  grunt.registerTask('fontawesome', ['gitclone:fontawesome', 'copy:fontawesome_css', 'copy:fontawesome_fonts', '_clean:tmp']);
+  grunt.registerTask('fancybox',    ['gitclone:fancybox',    'copy:fancybox',                                   '_clean:tmp']);
+  grunt.registerTask('default',     ['gitclone', 'copy', '_clean:tmp']);
+  grunt.registerTask('clean',       ['_clean']);
 };

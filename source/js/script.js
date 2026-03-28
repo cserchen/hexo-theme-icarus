@@ -1,7 +1,7 @@
 (function($){
   var toTop = $('#toTop').length ? $('#toTop').offset().top - $(window).height() + 20 : 0;
 
-  // Share
+  // Share box: toggle a popup with social share links for Twitter, Facebook, Pinterest
   $('body').on('click', function(){
     $('.article-share-box.on').removeClass('on');
   }).on('click', '.article-share-link', function(e){
@@ -27,8 +27,7 @@
           '<div class="article-share-links">',
             '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="fa fa-twitter article-share-twitter" target="_blank" title="Twitter"></a>',
             '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="fa fa-facebook article-share-facebook" target="_blank" title="Facebook"></a>',
-            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
-            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="fa fa-google article-share-google" target="_blank" title="Google+"></a>',
+            '<a href="https://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="fa fa-pinterest article-share-pinterest" target="_blank" title="Pinterest"></a>',
           '</div>',
         '</div>'
       ].join('');
@@ -55,7 +54,7 @@
     window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
   });
 
-  // Caption
+  // Caption & Fancybox: wrap article images in fancybox links and render captions
   $('.article-entry').each(function(i){
     $(this).find('img').each(function(){
       if ($(this).parent().hasClass('fancybox')) return;
@@ -76,17 +75,18 @@
     $('.fancybox').fancybox();
   }
 
-  // Profile card
+  // Profile card: toggle the profile dropdown on avatar click
   $(document).on('click', function () {
     $('#profile').removeClass('card');
   }).on('click', '#profile-anchor', function (e) {
+    e.preventDefault();
     e.stopPropagation();
     $('#profile').toggleClass('card');
   }).on('click', '.profile-inner', function (e) {
     e.stopPropagation();
   });
 
-  // To Top
+  // Back-to-top button: show/hide and position based on scroll and viewport width
   $(document).on('scroll', function () {
     if ($(document).width() >= 800) {
       if($(this).scrollTop() > toTop) {

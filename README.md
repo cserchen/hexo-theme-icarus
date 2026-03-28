@@ -1,203 +1,152 @@
-#Icarus
+# Icarus
 
-### The blog theme you may fall in love with, coming to Hexo. [Preview](http://ppoffice.github.io/hexo-theme-icarus/)
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/preview.jpg "")
+A clean, responsive Hexo blog theme. [Live preview](http://ppoffice.github.io/hexo-theme-icarus/)
+
+![Preview](http://ppoffice.github.io/hexo-theme-icarus/gallery/preview.jpg)
+
+## Requirements
+
+- [Hexo](https://hexo.io/) 3.0+
+- Node.js 16+
+
+---
 
 ## Installation
 
-### Install
-
-``` bash
-$ git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus
+```bash
+git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus
 ```
 
-**Icarus requires Hexo 3.0 and above.**
+---
 
-### Enable
+## Setup
 
-1. Rename `themes\icarus\_config.yml.example` to `themes\icarus\_config.yml`;
-2. Copy `themes\icarus\_config.yml.site.example` to your hexo blog's root directory and rename it to `_config.yml`;
-3. Then modify `theme` setting in `_config.yml` to `icarus`.
+1. Copy the theme config:
+   ```bash
+   cp themes/icarus/_config.yml.example themes/icarus/_config.yml
+   ```
+2. Copy the site config to your blog root:
+   ```bash
+   cp themes/icarus/_config.yml.site.example _config.yml
+   ```
+3. Set `theme: icarus` in your blog's `_config.yml`.
+
+### Enable Categories & Tags pages
+
+Copy the bundled pages into your site's `source/` directory:
+
+```bash
+cp -r themes/icarus/_source/categories source/
+cp -r themes/icarus/_source/tags source/
+```
+
+Then make sure `Categories` and `Tags` are listed in your theme's `_config.yml` menu.
 
 ### Update
 
-``` bash
-cd themes/icarus
-git pull
+```bash
+cd themes/icarus && git pull
 ```
+
+---
 
 ## Configuration
 
-### Theme configuration example
-```r
-# Header
-menu:
-  Home: .
-  Archives: archives
-  Categories: categories # you need to add extra page to enable this, please see the config below.
-  Tags: tags             # you need to add extra page to enable this, please see the config below.
-  About: about
+### Theme (`themes/icarus/_config.yml`)
 
-# Content
-excerpt_link: Read More
-fancybox: true
+| Key | Description |
+|-----|-------------|
+| `logo` | Path to header logo image |
+| `menu` | Navigation links (key: label, value: path) |
+| `excerpt_link` | "Read More" link text |
+| `fancybox` | Enable image lightbox (`true`/`false`) |
+| `profile` | Show profile card in header |
+| `gravatar` | Use Gravatar instead of local avatar |
+| `sidebar` | Sidebar position: `right`, `bottom`, or `false` |
+| `widgets` | List of sidebar widgets (see below) |
+| `thumbnail` | Show post thumbnails in sidebar/archives |
+| `contacts` | Social links shown as icons |
+| `links` | External links in the links widget |
+| `google_analytics` | GA4 Measurement ID (e.g. `G-XXXXXXXXXX`) |
+| `favicon` | Path to favicon file |
 
-# Sidebar
-sidebar: right
-widgets:
-- recent_posts
-- category
-- tag
-- tagcloud
-- archive
-thumbnail: true
+**Available widgets:** `recent_posts`, `category`, `tag`, `tagcloud`, `archive`, `links`
 
-# Contacts
-contacts:
-  github: http://github.com/ppoffice/hexo-theme-icarus
-  twitter: '#'
-  facebook: '#'
-  dribbble: '#'
-  rss: atom.xml
+### Site (`_config.yml`)
 
-# Links
-links:
-  Hexo: http://hexo.io
+| Key | Description |
+|-----|-------------|
+| `author` | Your name |
+| `author_title` | Your occupation/title |
+| `avatar` | Path to avatar image |
+| `location` | Your location |
+| `follow` | URL for the Follow button |
+| `since` | Copyright start year |
+| `disqus_shortname` | Your Disqus shortname (for comments) |
 
-# Miscellaneous
-google_analytics:
-favicon: favicon.png
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:
+---
+
+## Post Front-matter
+
+### Thumbnail & Banner
+
+```yaml
+title: My Post
+date: 2024-01-01
+thumbnail: /images/thumb.jpg
+banner: /images/banner.jpg
 ```
 
-- **excerpt_link** - Cooperate with `<!-- more -->` tag to show only part of the article in index pages.
-- **fancybox** - Enable [Fancybox].
-- **contacts** - Your social network links, RSS link, etc.
-- **widgets** - Widgets displaying in sidebar.
-- **thumbnail** - Whether to show post thumbnails in the sidebar and archive pages.
-- **links** - Links displayed in the link widget.
-- **google_analytics** - Google Analytics ID.
-- **favicon** - Favicon path.
+### Table of Contents
 
-### Site configuration example
-```r
-# Site
-title: Icarus
-subtitle:
-description: Hexo theme - Icarus
-author: PPOffice
-author_title: 'Web Developer & Designer'
-avatar: css/images/avatar.png
-location: 'Harbin, China'
-language: en
-timezone:
-
-...
-
-# Disqus
-disqus_shortname:
+```yaml
+toc: true
 ```
 
-- **author** - Your name.
-- **author_title** - Title to your occupation.
-- **avatar** - Your avatar image link.
-- **location** - Where you live in.
-- **disqus_shortname** - Your Disqus shortname.
+### Disable Comments
 
-### Post Thumbnail & Banner
-
-You can add a thumbnail and a banner to each post by adding the following lines into your post source files' front-matter:
-```r
-title: Demo
-date: 2015-01-01
-...
-# add those
-thumbnail: http://example.com/thumbnail.jpg
-banner: http://example.com/banner.jpg
+```yaml
+comments: false
 ```
 
-### Custom Categories & Tags Pages
-
-To enable custom categories page and tags page, just copy the `categories` folder and `tags` folder under your theme's `_source` foler into your site's `source` folder. Then edit theme's _config.yml and add the following lines: 
-```r
-# Header
-menu:
-  ...
-  Categories: categories # -> add this line
-  Tags: tags # -> and add this line
-  ...
-```
-
-### Languages
-
-English and Simplified Chinese are the default languages of the theme. You can add translations in the `languages` folder and change the default language in blog's `_config.yml`.
-
-```r
-language: zh-CN
-```
+---
 
 ## Features
 
-### Profile Sidebar
+- **Responsive layout** — adapts to mobile, tablet, and desktop screens
+- **Profile sidebar** — shows avatar, stats, and social links
+- **Fancybox lightbox** — wrap images in Markdown or use the `{% fancybox %}` tag
+- **Google Analytics 4** — add your GA4 Measurement ID to the theme config
+- **Disqus comments** — add your Disqus shortname to the site config
+- **i18n** — English, Simplified Chinese, Japanese, Indonesian
 
-A nice place to show yourself. You can add your own information in your site's `_config.yml`
-
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/profile.png "")
-
-### Post Banner & Thumbnail
-
-Thanks to [atika](https://github.com/atika), you can now add thumbnails and banners to every post to create better reading experience.
-
-### Responsive Layout
-
-Icarus knows on what screen size you are browsering the website, and reorganize the layout to fit your device.
-
-![](http://ppoffice.github.io/hexo-theme-icarus/gallery/responsive.jpg "")
-
-### Custom Categories & Tags Pages
-
-Get your categories and tags listed in single pages to make your blog more methodic.
-
-### Fancybox
-
-Icarus uses [Fancybox] to showcase your photos. You can use Markdown syntax or fancybox tag plugin to add your photos.
+### Fancybox tag
 
 ```
-![img caption](img url)
+{% fancybox /path/to/image [/path/to/thumbnail] [title] %}
 ```
 
-### Sidebar
-
-Icarus provides 6 built-in widgets:
-
-- recent_posts
-- category
-- archives
-- tag
-- tagcloud
-- links
-
-All of them are enabled by default. You can edit them in `widget` setting.
+---
 
 ## Development
 
-### Requirements
+Install build tools:
 
-- [Grunt] 0.4+
-- Hexo 3.0+
+```bash
+npm install
+```
 
-### Grunt tasks
+Build tasks (downloads Font Awesome and Fancybox from GitHub):
 
-- **default** - Download [Fancybox] and [Font Awesome].
-- **fontawesome** - Only download [Font Awesome].
-- **fancybox** - Only download [Fancybox].
-- **clean** - Clean temporarily files and downloaded files.
+| Task | Description |
+|------|-------------|
+| `grunt` | Download all dependencies |
+| `grunt fontawesome` | Download Font Awesome only |
+| `grunt fancybox` | Download Fancybox only |
+| `grunt clean` | Remove downloaded assets |
 
-[Hexo]: http://zespia.tw/hexo/
-[Fancybox]: http://fancyapps.com/fancybox/
-[Font Awesome]: http://fontawesome.io/
-[Grunt]: http://gruntjs.com/
+---
 
+## License
+
+MIT © [Tommy Chen](https://github.com/ppoffice)

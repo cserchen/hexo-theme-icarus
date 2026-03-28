@@ -1,49 +1,46 @@
-# Logo
-logo: css/images/logo.png # Empty this to unset logo
+# ---------------------------------------------------------------
+# Icarus Theme Configuration
+# ---------------------------------------------------------------
 
 # Header
+logo: css/images/logo.png   # Path to logo image; leave blank to hide
+
 menu:
   Home: .
   Archives: archives
-  Categories: categories
-  Tags: tags
+  Categories: categories    # Requires a categories page in source/
+  Tags: tags                # Requires a tags page in source/
   About: about
 
 # Content
-excerpt_link: Read More
-fancybox: true
+excerpt_link: Read More     # "Read More" link text shown after post excerpts
+fancybox: true              # Enable Fancybox image lightbox
 
-# Profile
-profile: true # whether to show profile bar
-gravatar: false # whether to use gravatar with the email
-showlogo: false # whether to show the logo in the header
+# Profile sidebar
+profile: true               # Show the profile bar in the header
+gravatar: false             # Use Gravatar (requires email below); false = use avatar image
 
 # Sidebar
-sidebar: right # set to false if you don't want a sidebar
+sidebar: right              # Position: right | bottom | false (disabled)
 widgets:
-- recent_posts
-- category
-- tag
-- tagcloud
-- archive
-thumbnail: true
+  - recent_posts
+  - category
+  - tag
+  - tagcloud
+  - archive
+thumbnail: true             # Show post thumbnails in sidebar and archive pages
 
-# Contacts
+# Social contacts (displayed as Font Awesome icons)
 contacts:
-  github: http://github.com/ppoffice/hexo-theme-icarus
-  twitter: '#'
-  facebook: '#'
-  dribbble: '#'
+  github: https://github.com/your-username
+  twitter: https://twitter.com/your-username
+  facebook: https://facebook.com/your-username
   rss: atom.xml
 
-# Links
+# External links shown in the links widget
 links:
-  Hexo: http://hexo.io
+  Hexo: https://hexo.io
 
 # Miscellaneous
-google_analytics:
-favicon: favicon.png
-twitter:
-google_plus:
-fb_admins:
-fb_app_id:
+google_analytics:           # Google Analytics 4 Measurement ID (e.g. G-XXXXXXXXXX)
+favicon: favicon.png        # Path to favicon
