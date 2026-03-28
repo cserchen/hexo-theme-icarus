@@ -14,7 +14,7 @@ A clean, responsive Hexo blog theme. [Live preview](http://ppoffice.github.io/he
 ## Installation
 
 ```bash
-git clone https://github.com/ppoffice/hexo-theme-icarus.git themes/icarus
+git clone https://github.com/cserchen/hexo-theme-icarus.git themes/icarus
 ```
 
 ---

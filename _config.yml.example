@@ -32,9 +32,9 @@ thumbnail: true             # Show post thumbnails in sidebar and archive pages
 
 # Social contacts (displayed as Font Awesome icons)
 contacts:
-  github: https://github.com/your-username
-  twitter: https://twitter.com/your-username
-  facebook: https://facebook.com/your-username
+  github: https://github.com/cser
+  twitter: https://twitter.com/cser
+  facebook: https://facebook.com/cser
   rss: atom.xml
 
 # External links shown in the links widget

@@ -7,20 +7,20 @@
 title: Icarus
 subtitle:
 description: A Hexo blog powered by the Icarus theme
-author: Your Name
+author: cser
 author_title: 'Web Developer & Designer'
 avatar: css/images/avatar.png
 location: 'Your City, Country'
-follow: https://github.com/your-username
+follow: https://github.com/cser
 language: en              # Supported: en | zh-CN | ja | id
 timezone:
 since: 2024               # Copyright start year shown in the footer
 
 # URL
 ## If deploying to a subdirectory, set url and root accordingly:
-##   url: https://yoursite.com/blog
+##   url: https://cser.github.io/blog
 ##   root: /blog/
-url: https://yoursite.com
+url: https://cser.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -69,11 +69,11 @@ pagination_dir: page
 theme: icarus
 
 # Comments (Disqus)
-# disqus_shortname: your-disqus-shortname
+# disqus_shortname: cser
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment.html
 deploy:
   type: git
-  repository: https://github.com/your-username/your-blog.git
+  repository: https://github.com/cser/cser-blog.git
   branch: gh-pages
