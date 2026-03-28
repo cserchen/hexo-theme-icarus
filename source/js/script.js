@@ -1,3 +1,7 @@
+/**
+ * Icarus theme – main client-side script
+ * @author cser
+ */
 (function($){
   var toTop = $('#toTop').length ? $('#toTop').offset().top - $(window).height() + 20 : 0;
 

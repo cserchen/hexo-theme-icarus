@@ -2,6 +2,7 @@
   "name": "hexo-theme-icarus",
   "version": "1.0.0",
   "description": "A clean and responsive Hexo blog theme",
+  "author": "cser",
   "private": true,
   "engines": {
     "node": ">=16.0.0",
